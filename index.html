@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .box {
+      display: flex;
+      width: 100%;
+    }
+
+    .imgBox {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 10px);
+    }
+
+    .myDiv {
+      display: flex;
+      height: 100%;
+      overflow-y: scroll;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .iframe-box {
+      height: calc(100vh - 10px);
+    }
+    .searchKey {
+      width: 100%;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .searchImg {
+      height: 500px;
+      width: 500px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <iframe src="" frameborder="0" width="50%"
+      class="iframe-box" id="pdfIrame"></iframe>
+    <div class="imgBox">
+      <input id="findInput" class="toolbarField" title="Find" placeholder="Find in document…" tabindex="91"
+        data-l10n-id="pdfjs-find-input" aria-invalid="false">
+      <div id="myDiv" class="myDiv">
+
+      </div>
+    </div>
+
+  </div>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const nameParam = urlParams.get('name');
+    const iframeUrl = `web/viewer.html?file=../static/${nameParam}`
+    const irameDom = document.getElementById('pdfIrame');
+    irameDom.src = iframeUrl;
+  </script>
+</body>
+
+</html>
